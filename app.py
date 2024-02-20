@@ -1,12 +1,22 @@
-import requests
+import streamlit as st
+import random
 
-url = "https://www.example.com"
-response = requests.get(url)
 
-if response.status_code == 200:
-    print("Request successful!")
-    website_content = response.text
-    print(website_content)
+st.header("Let's pick what you want to eat 😋")
+
+stye = st.radio('What nation do you want',options = ['Thai', 'Japan', 'Korea','Vietnm','China'],horizontal=True)
+
+thai = ["noodle", "Pad Thai", "Papaya Salad", "Stickyrice"]
+random_thai = random.choice(thai)
+
+type = st.radio(
+     "Stye o you want",
+     ('Noodle', 'rice', 'fast food'))
+
+if stye == 'Thai':
+    if type == 'Noodle':
+        st.write(f"Do you want {random_thai}")
+
 
 else:
-    print("Request failed with status code:", response.status_code)
+    st.write(f"try another choice")
