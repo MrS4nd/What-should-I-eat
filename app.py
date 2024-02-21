@@ -11,22 +11,23 @@ random_japan = random.choice(japan)
 
 korea = ["Bibimbub","Kimchi"]
 
-stye = st.radio('What nation do you want',options = [f'Thai', f'Japan', f'Korea',f'Vietnam',f'China',f'What ever'],horizontal=True)
+allergy = st.multiselect('Allergies',['Milk 🥛','Eggs 🥚','Vegetables 🥗','Fish 🐟','Crustacean shellfish 🦐','Tree nuts 🌰','Peanuts 🥜','Wheat 🌾','Soybeans 🫘','Sesame 𓇢']) 
 
-type = st.radio('What type do you want',options = ['Noodle', 'Snack', 'Vegan'],horizontal=True)
+style = st.radio('What type do you want',options = ['Noodle', 'Snack', 'Vegan'],horizontal=True)
 
-feel = st.radio('Today weather is too.....',options = ['Hot', 'Cold', 'Normal'],horizontal=True)
+typ = st.radio('Today weather is too.....',options = ['Hot', 'Cold', 'Normal'],horizontal=True)
 
 
-if stye == 'Thai':
+st.button("Try again")
+
+
+if style == 'Thai':
     if type == 'Noodle':
-        if feel == 'Hot':
-            st.write(f"Do you want {random_thai}")
+        st.write(f"Do you want {random_thai}")
 
-elif stye == 'Japan':
+elif style == 'Japan':
     if type == 'Noodle':
-        if feel == 'Cold':
-             st.write(f"Do you want {random_japan}")
+       st.write(f"Do you want {random_japan}")
 
 else:
     st.write(f"try another choice")
