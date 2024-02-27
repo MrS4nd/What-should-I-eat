@@ -3,31 +3,72 @@ import random
 
 st.header("Let's pick what you want to eat 😋")
 
-thai = ["noodle", "Pad Thai", "Papaya Salad", "Stickyrice"]
-random_thai = random.choice(thai)
+drinks = 'drinks.txt'
 
-japan = ["sushi","ramen"]
-random_japan = random.choice(japan)
+th = 'thai.txt'
+viet = 'viet.txt'
+jap = 'japan.txt'
+ko = 'korea.txt'
+ch = 'ch.txt'
 
-korea = ["Bibimbub","Kimchi"]
+def drink_menu(drinks):
+    with open(drinks,'r') as d:
+        d_lines = d.readlines()
+        drinks_lines = random.choice(d_lines) 
+    return drinks_lines.strip() 
 
-allergy = st.multiselect('Allergies',['Milk 🥛','Eggs 🥚','Vegetables 🥗','Fish 🐟','Crustacean shellfish 🦐','Tree nuts 🌰','Peanuts 🥜','Wheat 🌾','Soybeans 🫘','Sesame 𓇢']) 
+def thai_menu(th):
+    with open(th,'r') as t:
+        t_lines = t.readlines()
+        thai_lines = random.choice(t_lines)
+    return thai_lines.strip()
 
-style = st.radio('What type do you want',options = ['Noodle', 'Snack', 'Vegan'],horizontal=True)
+def Viet_menu(viet):
+    with open(viet,'r') as v:
+        v_lines = v.readlines()
+        viet_lines = random.choice(v_lines)
+    return viet_lines.strip()
+    
+def Japan_menu(jap):
+    with open(jap,'r') as j:
+        j_lines = j.readlines()
+        japan_lines = random.choice(j_lines)
+    return japan_lines.strip()
+    
+def Korea_menu(ko):
+    with open(ko,'r') as k:
+        k_lines = k.readlines()
+        korea_lines = random.choice(k_lines)
+    return korea_lines.strip()   
 
-typ = st.radio('Today weather is too.....',options = ['Hot', 'Cold', 'Normal'],horizontal=True)
+def China_menu(ch):
+    with open(ch,'r') as c:
+        c_lines = c.readlines()
+        china_lines = random.choice(c_lines)
+    return china_lines.strip()   
 
+allergy = st.multiselect('What types of food are you allergic to?',['Milk 🥛','Eggs 🥚','Vegetables 🥗','Fish 🐟','Crustacean shellfish 🦐',
+                        'Tree nuts 🌰','Peanuts 🥜','Wheat 🌾','Soybeans 🫘','Sesame 𓇢'])
 
-st.button("Try again")
+pick = st.radio('Are there any foods that you don\'t eat?',options = ['Yes', 'No',],horizontal=True)
 
+if pick == 'Yes':
+    choose = st.multiselect('Are there any foods that you don\'t eat?',['Pork 🐖','Beef 🐄','Chicken 🐓','Spicy 🌶️','Rare 🥩','Product from animal 🐮'])
 
-if style == 'Thai':
-    if type == 'Noodle':
-        st.write(f"Do you want {random_thai}")
+nation = st.multiselect('Which cuisine\'s dishes do you prefer??',['Thailand 🛕','Vietnam 🪷','Japan ⛩️','Korea 🫰','China 🧧','Other 😶'])
 
-elif style == 'Japan':
-    if type == 'Noodle':
-       st.write(f"Do you want {random_japan}")
+style = st.multiselect('Is there any specific dish you want?',['Noodle', 'Snack', 'Vegan'])
 
+drink = st.radio('Would you like a drink with that?',options = ['Yes','No'],horizontal=True)
+
+if st.button('Start Random') and nation:
+    if allergy:
+        if drink == 'Yes':
+            st.write(drink_menu(drinks))
+            if 'Milk 🥛' in allergy:
+                st.write('Milk')
+    if choose:
+        if 'Pork 🐖' in choose:
+            st.write('Pork')     
 else:
-    st.write(f"try another choice")
+    st.write('Please select \"National dishes\" or press \"Start Random\" 🥺')
