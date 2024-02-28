@@ -47,29 +47,43 @@ def China_menu(ch):
         china_lines = random.choice(c_lines)
     return china_lines.strip()
 
-cuisines = {'Thailand 🛕': [thai_menu(th)], 
-            'Vietnam 🪷': [Viet_menu(viet)],
-            }   
-
-#allergy = st.multiselect('What types of food are you allergic to?',['Milk 🥛','Eggs 🥚','Vegetables 🥗','Fish 🐟','Crustacean shellfish 🦐',
-#                        'Tree nuts 🌰','Peanuts 🥜','Wheat 🌾','Soybeans 🫘','Sesame 𓇢'])
-
+al = st.radio('Are there any foods that you allergies for?',options = ['Yes', 'No',],horizontal=True)
+if al == 'Yes':
+    allergy = st.multiselect('What types of food are you allergic to?',['Milk 🥛','Eggs 🥚','Vegetables 🥗','Fish 🐟','Crustacean shellfish 🦐',
+                            'Tree nuts 🌰','Peanuts 🥜','Wheat 🌾','Soybeans 🫘','Sesame 𓇢'])
 
 pick = st.radio('Are there any foods that you don\'t eat?',options = ['Yes', 'No',],horizontal=True)
-
 if pick == 'Yes':
     choose = st.multiselect('Are there any foods that you don\'t eat?',['Pork 🐖','Beef 🐄','Chicken 🐓','Spicy 🌶️','Rare 🥩','Product from animal 🐮'])
 
-#nation = st.multiselect('Which cuisine\'s dishes do you prefer?',['Thailand 🛕','Vietnam 🪷','Japan ⛩️','Korea 🫰','China 🧧','Other 😶'])
-
-nation = st.multiselect('Which cuisine\'s dishes do you prefer?',(cuisines))
+nation = st.multiselect('Which cuisine\'s dishes do you prefer?',['Thailand 🛕','Vietnam 🪷','Japan ⛩️','Korea 🫰','China 🧧','Other 😶'])
 
 style = st.multiselect('Is there any specific dish you want?',['Noodle', 'Snack', 'Vegan'])
 
 drink = st.radio('Would you like a drink with that?',options = ['Yes','No'],horizontal=True)
 
 if st.button('Start Random') and nation:
-    if nation:
-        st.write(list(cuisines.keys()))    
+    
+    if 'Thailand 🛕' in nation:
+        st.write("For Thai dishes :", thai_menu(th))    
+        
+    if 'Korea 🫰' in nation:
+        st.write("For Korea dishes :",Korea_menu(ko))
+    
+    if 'Vietnam 🪷' in nation:
+        st.write("For Vietnam dishes :")
+    
+    if 'Japan ⛩️' in nation:
+        st.write("For Japan dishes :")
+
+    if 'China 🧧' in nation:
+        st.write("For Chinese dishes :")
+
+    if 'Other 😶' in nation:
+        st.write("For other :")
+    
+    if drink == 'Yes':
+        st.write("For drinks :", drink_menu(drinks))
+    
 else:
-    st.write('Please select \"National dishes\" or press \"Start Random\" 🥺')
+    st.write('Please select \"Cuisines\" or press \"Start Random\" 🥺')
