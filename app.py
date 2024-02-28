@@ -45,30 +45,31 @@ def China_menu(ch):
     with open(ch,'r') as c:
         c_lines = c.readlines()
         china_lines = random.choice(c_lines)
-    return china_lines.strip()   
+    return china_lines.strip()
 
-allergy = st.multiselect('What types of food are you allergic to?',['Milk 🥛','Eggs 🥚','Vegetables 🥗','Fish 🐟','Crustacean shellfish 🦐',
-                        'Tree nuts 🌰','Peanuts 🥜','Wheat 🌾','Soybeans 🫘','Sesame 𓇢'])
+cuisines = {'Thailand 🛕': [thai_menu(th)], 
+            'Vietnam 🪷': [Viet_menu(viet)],
+            }   
+
+#allergy = st.multiselect('What types of food are you allergic to?',['Milk 🥛','Eggs 🥚','Vegetables 🥗','Fish 🐟','Crustacean shellfish 🦐',
+#                        'Tree nuts 🌰','Peanuts 🥜','Wheat 🌾','Soybeans 🫘','Sesame 𓇢'])
+
 
 pick = st.radio('Are there any foods that you don\'t eat?',options = ['Yes', 'No',],horizontal=True)
 
 if pick == 'Yes':
     choose = st.multiselect('Are there any foods that you don\'t eat?',['Pork 🐖','Beef 🐄','Chicken 🐓','Spicy 🌶️','Rare 🥩','Product from animal 🐮'])
 
-nation = st.multiselect('Which cuisine\'s dishes do you prefer??',['Thailand 🛕','Vietnam 🪷','Japan ⛩️','Korea 🫰','China 🧧','Other 😶'])
+#nation = st.multiselect('Which cuisine\'s dishes do you prefer?',['Thailand 🛕','Vietnam 🪷','Japan ⛩️','Korea 🫰','China 🧧','Other 😶'])
+
+nation = st.multiselect('Which cuisine\'s dishes do you prefer?',(cuisines))
 
 style = st.multiselect('Is there any specific dish you want?',['Noodle', 'Snack', 'Vegan'])
 
 drink = st.radio('Would you like a drink with that?',options = ['Yes','No'],horizontal=True)
 
 if st.button('Start Random') and nation:
-    if allergy:
-        if drink == 'Yes':
-            st.write(drink_menu(drinks))
-            if 'Milk 🥛' in allergy:
-                st.write('Milk')
-    if choose:
-        if 'Pork 🐖' in choose:
-            st.write('Pork')     
+    if nation:
+        st.write(list(cuisines.keys()))    
 else:
     st.write('Please select \"National dishes\" or press \"Start Random\" 🥺')
