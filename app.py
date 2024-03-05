@@ -49,16 +49,14 @@ def China_menu(ch):
 
 al = st.radio('Are there any foods that you allergies for?',options = ['Yes', 'No',],horizontal=True)
 if al == 'Yes':
-    allergy = st.multiselect('What types of food are you allergic to?',['Milk 🥛','Eggs 🥚','Vegetables 🥗','Fish 🐟','Crustacean shellfish 🦐',
+    allergy = st.multiselect('What types of food are you allergic to?',['Dairy products 🥛','Eggs 🥚','Vegetables 🥗','Fish 🐟','Crustacean shellfish 🦐',
                             'Tree nuts 🌰','Peanuts 🥜','Wheat 🌾','Soybeans 🫘','Sesame 𓇢'])
 
 pick = st.radio('Are there any foods that you don\'t eat?',options = ['Yes', 'No',],horizontal=True)
 if pick == 'Yes':
-    choose = st.multiselect('Are there any foods that you don\'t eat?',['Pork 🐖','Beef 🐄','Chicken 🐓','Spicy 🌶️','Rare 🥩','Product from animal 🐮'])
+    choose = st.multiselect('Are there any foods that you don\'t eat?',['Pork 🐖','Beef 🐄','Chicken 🐓','Spicy 🌶️','Seafood 🦪'])
 
 nation = st.multiselect('Which cuisine\'s dishes do you prefer?',['Thailand 🛕','Vietnam 🪷','Japan ⛩️','Korea 🫰','China 🧧','Other 😶'])
-
-style = st.multiselect('Is there any specific dish you want?',['Noodle', 'Snack', 'Vegan'])
 
 drink = st.radio('Would you like a drink with that?',options = ['Yes','No'],horizontal=True)
 
@@ -71,17 +69,14 @@ if st.button('Start Random') and nation:
         st.write("For Korea dishes :",Korea_menu(ko))
     
     if 'Vietnam 🪷' in nation:
-        st.write("For Vietnam dishes :")
+        st.write("For Vietnam dishes :",Viet_menu(viet))
     
     if 'Japan ⛩️' in nation:
-        st.write("For Japan dishes :")
+        st.write("For Japan dishes :",Japan_menu(jap))
 
     if 'China 🧧' in nation:
-        st.write("For Chinese dishes :")
+        st.write("For Chinese dishes :",China_menu(ch))
 
-    if 'Other 😶' in nation:
-        st.write("For other :")
-    
     if drink == 'Yes':
         st.write("For drinks :", drink_menu(drinks))
     

@@ -3,7 +3,7 @@ Cocoa
 Thai tea
 Jasmine tea
 Matcha latte
-Coffee
+Mocha
 Black coffee
 Milk tea
 Black tea

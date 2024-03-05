@@ -1,0 +1,20 @@
+Tonkatsu
+Katsudon
+Buta Shogayaki
+Chazuke
+Tamago
+Miso Soup
+Awase Dashi
+Tonchiru
+Nabemono
+Shirumono
+Ramen
+Soba
+Udon
+Yakisoba 
+Napolitan
+Teppanyaki
+Yakiniku
+Gyutanyaki
+Gyudon
+Gyukatsu
