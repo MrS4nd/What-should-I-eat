@@ -69,7 +69,7 @@ def China_menu(ch):
         china_lines = random.choice(c_lines)
     return china_lines.strip()
 
-if st.button('Start Random') and (nation or user) :
+if st.button('Start Random') and nation and user :
         
     if user == 'Yes':    
         if user == 'Yes' and user_input:
