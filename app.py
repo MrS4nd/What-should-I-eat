@@ -76,7 +76,7 @@ if st.button('Start Random') and (nation or (user == 'Yes' and user_input)) :
             st.write("You got :", random_user)
 
         else:
-            st.write("Please enter what food would you like to random on food.")
+            st.write("Please enter the names of dishes for random selection.")
 
     if nation:
         st.write("You should try!")
@@ -85,25 +85,25 @@ if st.button('Start Random') and (nation or (user == 'Yes' and user_input)) :
             st.write("Or you should try this!:")
             
     if 'Thailand 🛕' in nation:
-        st.write("For Thai dishes :", thai_menu(th))    
+        st.write("🛕For Thai dishes :", thai_menu(th))    
         
     if 'Korea 🫰' in nation:
-        st.write("For Korea dishes :",Korea_menu(ko))
+        st.write("🫰For Korea dishes :",Korea_menu(ko))
     
     if 'Vietnam 🪷' in nation:
-        st.write("For Vietnam dishes :",Viet_menu(viet))
+        st.write("🪷For Vietnam dishes :",Viet_menu(viet))
     
     if 'Japan ⛩️' in nation:
-        st.write("For Japan dishes :",Japan_menu(jap))
+        st.write("⛩️For Japan dishes :",Japan_menu(jap))
 
     if 'China 🧧' in nation:
-        st.write("For Chinese dishes :",China_menu(ch))
+        st.write("🧧For Chinese dishes :",China_menu(ch))
 
     if drink == 'Yes':
         if 'Dairy products 🥛' in allergy:
-            st.write("Drinks for dairy-free :",drink_all(drink_milk))
+            st.write("🥛Drinks for dairy-free :",drink_all(drink_milk))
         else:
-            st.write("For drinks :", drink_menu(drinks))
+            st.write("🍹For drinks :", drink_menu(drinks))
         
 else:
     st.write('Please select \"Cuisines\" or \"Enter your food options\" and then press \"Start Random\" 🥺')
