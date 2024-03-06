@@ -102,7 +102,7 @@ if st.button('Start Random') and (nation or (user == 'Yes' and user_input)) :
 
     if drink == 'Yes':
         if 'Dairy products 🥛' in allergy:
-            st.write("🥛Drinks for dairy-free :",drink_all(drink_milk))
+            st.write("🐮Drinks for dairy-free :",drink_all(drink_milk))
         else:
             st.write("🍹For drinks :", drink_menu(drinks))
         
