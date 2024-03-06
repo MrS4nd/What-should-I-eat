@@ -73,15 +73,16 @@ if st.button('Start Random') and (nation or (user == 'Yes' and user_input)) :
         
     if user == 'Yes':    
         if user == 'Yes' and user_input:
-            st.write("You got :", random_user)
+            st.write("👊 You got :", random_user)
 
         else:
-            st.write("Please enter the names of dishes for random selection.")
+            st.write("Please enter the names of dishes for random selection. 🥺")
 
     if nation:
-        st.write("You should try!")
+        if nation and user == 'No':
+            st.write("You should try!")
         
-        if nation and user == 'Yes':
+        elif nation and user == 'Yes':
             st.write("Or you should try this!:")
             
     if 'Thailand 🛕' in nation:
