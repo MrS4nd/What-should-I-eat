@@ -16,7 +16,7 @@ if al == 'Yes':
 
 nation = st.multiselect('Which cuisine\'s dishes do you prefer?',['Thailand 🛕','Vietnam 🪷','Japan ⛩️','Korea 🫰','China 🧧'])
 
-drink = st.radio('Would you like a drink with or only drink?',options = ['Yes','No'],horizontal=True)
+drink = st.radio('Would you like a drink with?',options = ['Yes','No'],horizontal=True)
 
 drinks = 'drinks.txt'
 drink_milk = 'milk_drink.txt'
@@ -109,9 +109,3 @@ if st.button('Start Random') and (nation or user == 'Yes') :
         
 else:
     st.write('Please select \"Cuisines\" or \"Enter your food options\" and then press \"Start Random\" 🥺')
-    if drink == 'Yes':
-        if al == 'Yes':    
-            if 'Dairy products 🥛' in allergy:
-                st.write("🐮Drinks for dairy-free :",drink_all(drink_milk))
-        else:
-            st.write("🍹For drinks :", drink_menu(drinks))
