@@ -1,1 +1,1 @@
-This application is for Project 
+This application is for Project CISAT mechatronic engineering student to create the application that help us to decide what to eat today for the person that cant decide what to eat or cant choose what to eat.
